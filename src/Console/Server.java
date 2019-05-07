@@ -22,6 +22,7 @@ public class Server {
             int port = 8888;
             ServerSocket serverSocket = new ServerSocket(port);
             Socket socket = serverSocket.accept();
+            System.out.println("Connessione ricevuta!");
 
             while (true) {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);

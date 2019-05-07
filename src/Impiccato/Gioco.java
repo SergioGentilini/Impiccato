@@ -63,7 +63,7 @@ public class Gioco {
             nuovaParola();
             notificaOsservatori();
         }
-        if (completo == true) {
+        if (completo) {
             System.out.println("Hai vinto!");
             nuovaParola();
             notificaOsservatori();
@@ -100,8 +100,10 @@ public class Gioco {
                 }
 
                 parola += " ";
-                if (!presente) parola += "_";
-                completo = false;
+                if (!presente) {
+                    parola += "_";
+                    completo = false;
+                }
             }
         }
 
