@@ -28,9 +28,12 @@ public class Server {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-                char lettera = in.readLine().toLowerCase().toCharArray()[0];
+                String riga = in.readLine();
+                if (riga.length() != 0) {
+                    char lettera = riga.toLowerCase().toCharArray()[0];
+                    gioco.creaTentativo(lettera);
+                }
 
-                gioco.creaTentativo(lettera);
                 out.write(gioco.stampaImpiccatoStringa());
                 out.println("");
             }
